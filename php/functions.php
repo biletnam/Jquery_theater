@@ -69,4 +69,43 @@ function get_seatStatus($mid){
     }
     return $result;
   }
+
+  //取得所有電影
+  function get_all_movie()
+  {
+    $sql = "SELECT * FROM `movielist` ";
+    $query = mysqli_query($_SESSION['link'],$sql);
+    $datas = array();
+    if($query)
+    {
+      if(mysqli_num_rows($query)>0)
+      {
+        while($row = mysqli_fetch_assoc($query))
+        {
+          $datas[] = $row;
+        }
+      }
+      return $datas;
+    }
+    else {
+      echo "查詢錯誤" . mysqli_error($_SESSION['link']);
+    }
+  }
+
+  //取得特定電影
+  function get_the_movie($id)
+  {
+    $sql = "SELECT * FROM `movielist` WHERE `id`={$id}";
+    $query = mysqli_query($_SESSION['link'],$sql);
+    $datas = null;
+
+    if(mysqli_num_rows($query) == 1)
+    {
+      $datas = mysqli_fetch_assoc($query);
+    }
+    else {
+      echo mysqli_error($_SESSION['link']);
+    }
+    return $datas;
+  }
 ?>

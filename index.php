@@ -1,3 +1,9 @@
+<?php
+    require_once "php/db.php";
+    require_once "php/functions.php";
+
+    $allmovielist = get_all_movie();
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -24,114 +30,28 @@
       </div>
     </nav>
     <div class="row">
+      <?php if(!empty($allmovielist)): ?>
+        <?php foreach ($allmovielist as $datas): ?>
       <div class="col s3 ">
         <div class="card horizontal small">
           <div class="card-image">
-            <img src="images/Alaycikus.jpg">
+            <img src="<?php echo $datas['mimgpath']?>">
           </div>
           <div class="card-stacked small">
             <div class="card-content">
-              <p>飢餓遊戲：自由幻夢I</p>
-              <p>片長：2小時3分鐘</p>
-              <p>導演：芙蘭西斯．路易斯</p>
-              <p>演員：珍妮佛·勞倫斯，喬許·哈契遜</p>
+              <p><?php echo $datas['mname'] ?></p>
+              <p>片長：<?php echo $datas['mlength']?></p>
+              <p>導演：<?php echo $datas['mdirector']?></p>
+              <p>演員：<?php echo $datas['mactor']?></p>
             </div>
             <div class="card-action">
-              <a href="MovieDetail.php?movie=1">詳細資料</a>
+              <a href="MovieDetail.php?movie=<?php echo $datas['id']?>">詳細資料</a>
             </div>
           </div>
         </div>
       </div>
-      <div class="col s3 ">
-        <div class="card horizontal small">
-          <div class="card-image">
-            <img src="images/distance.jpg">
-          </div>
-          <div class="card-stacked small">
-            <div class="card-content">
-              <p>再見，在也不見</p>
-              <p>片長：1小時48分鐘</p>
-              <p>導演：Sivaroj Kongsakul， Yukun Xin， Shijie Tan</p>
-              <p>演員：陳柏霖、蔣雯麗、楊祐寧、秦沛</p>
-            </div>
-            <div class="card-action">
-              <a href="MovieDetail.php?movie=2">詳細資料</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col s3 ">
-        <div class="card horizontal small">
-          <div class="card-image">
-            <img src="images/eclipse.jpg">
-          </div>
-          <div class="card-stacked small">
-            <div class="card-content">
-              <p>暮光之城：蝕</p>
-              <p>片長：2小時11分鐘</p>
-              <p>導演：David Slade</p>
-              <p>演員：羅伯·派汀森，克莉絲汀·史都華</p>
-            </div>
-            <div class="card-action">
-              <a href="MovieDetail.php?movie=3">詳細資料</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col s3 ">
-        <div class="card horizontal small">
-          <div class="card-image">
-            <img src="images/lier.jpg">
-          </div>
-          <div class="card-stacked small">
-            <div class="card-content">
-              <p>失控謊言</p>
-              <p>片長：1小時34分鐘</p>
-              <p>導演：Lou Yi-An</p>
-              <p>演員：許瑋甯，陳庭妮</p>
-            </div>
-            <div class="card-action">
-              <a href="MovieDetail.php?movie=4">詳細資料</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col s3 ">
-        <div class="card horizontal small">
-          <div class="card-image">
-            <img src="images/Maleficent.jpg">
-          </div>
-          <div class="card-stacked small">
-            <div class="card-content">
-              <p>黑魔女</p>
-              <p>片長：1小時37分鐘</p>
-              <p>導演：勞勃·史東柏格</p>
-              <p>演員：安潔莉娜・裘莉</p>
-            </div>
-            <div class="card-action">
-              <a href="MovieDetail.php?movie=5">詳細資料</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col s3 ">
-        <div class="card horizontal small">
-          <div class="card-image">
-            <img src="images/spy.jpg">
-          </div>
-          <div class="card-stacked small">
-            <div class="card-content">
-              <p>007：空降危機</p>
-              <p>片長：2小時23分鐘</p>
-              <p>導演：山姆·曼德斯</p>
-              <p>演員：丹尼爾·克雷格</p>
-            </div>
-            <div class="card-action">
-              <a href="MovieDetail.php?movie=6">詳細資料</a>
-            </div>
-          </div>
-        </div>
-      </div>
+        <?php endforeach; ?>
+      <?php endif;?>
     </div>
 
   </body>
