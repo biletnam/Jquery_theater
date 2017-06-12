@@ -1,32 +1,7 @@
 <?php
   require_once 'php/db.php';
   require_once 'php/functions.php';
-  if($_GET['m']==1)
-  {
-    $movie_name="片名：飢餓遊戲：自由幻夢I";
-  }
-  else if($_GET['m']==2)
-  {
-    $movie_name="片名：再見，在也不見";
-  }
-  else if($_GET['m']==3)
-  {
-    $movie_name="片名：暮光之城：蝕";
-  }
-  else if($_GET['m']==4)
-  {
-    $movie_name="片名：失控謊言";
-  }
-  else if($_GET['m']==5)
-  {
-    $movie_name="片名：黑魔女";
-
-  }
-  else if($_GET['m']==6)
-  {
-    $movie_name="片名：007：空降危機";
-  }
-
+  $themovie = get_the_movie($_GET['m']);
   $result = get_seatStatus($_GET['m']);
   $r_length = count($result);
   //echo $r_length;
@@ -38,10 +13,11 @@
     <meta charset="utf-8">
     <title>白雪大戲院</title>
     <link rel="shortcut icon" href="images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu" rel="stylesheet"> <!--字型-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.css">
     <script
     src="https://code.jquery.com/jquery-2.2.4.min.js"
     integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
@@ -49,7 +25,7 @@
   </head>
   <body class="book">
     <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper toplist">
         <a href="#!" class="brand-logo">白雪大戲院</a>
         <ul class="right hide-on-med-and-down">
           <li><a href="booking_search.php">訂位查詢</a></li>
@@ -144,14 +120,24 @@
       </div>
       <div class="col s5 information">
         <h4>線上訂位</h4>
-        <h5><?php echo $movie_name?></h5>
+        <h5><?php echo $themovie['mname']?></h5>
         <form id="book_form" method="post">
-          <div class="input-field col s12"> <!--時段-->
-            <select name="selector">
+          <div class="input-field col s6"> <!--時間-->
+            <select name="selector_date">
+              <option value="" disabled selected>Select Date</option>
+              <option value="A">2017/06/15</option>
+              <option value="B">2017/07/20</option>
+              <option value="C">2017/08/11</option>
+            </select>
+            <label>Movie Date</label>
+          </div>
+          <div class="input-field col s6"> <!--時段-->
+            <select name="selector_session">
               <option value="" disabled selected>Select Session</option>
               <option value="A">A：10：30</option>
               <option value="B">B：13：10</option>
               <option value="C">C：18：30</option>
+              <option value="D">D：23：30</option>
             </select>
             <label>Movie Session</label>
           </div>
@@ -268,7 +254,8 @@
                 'bname' : $("input[name=booker_name]").val(),
                 'bphone' : $("input[name=booker_phone]").val(),
                 'bemail' : $("input[name=booker_email]").val(),
-                'bsession' : $("select[name=selector]").val(),
+                'bsession' : $("select[name=selector_session]").val(),
+                'bdate' : $("select[name=selector_date]").val(),
                 'bseat' : seat,
                 'bnow' : booked_submit,
                 'mid' : <?php echo $_GET['m'] ?>

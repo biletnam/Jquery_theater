@@ -10,10 +10,11 @@
     <meta charset="utf-8">
     <title>白雪大戲院</title>
     <link rel="shortcut icon" href="images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu" rel="stylesheet"> <!--字型-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.css">
     <script
     src="https://code.jquery.com/jquery-2.2.4.min.js"
     integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
@@ -21,7 +22,7 @@
   </head>
   <body>
     <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper toplist">
         <a href="#!" class="brand-logo">白雪大戲院</a>
         <ul class="right hide-on-med-and-down">
           <li><a href="booking_search.php">訂位查詢</a></li>

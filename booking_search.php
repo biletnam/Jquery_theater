@@ -4,10 +4,11 @@
     <meta charset="utf-8">
     <title>白雪大戲院</title>
     <link rel="shortcut icon" href="images/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Ubuntu" rel="stylesheet"> <!--字型-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.css">
     <script
     src="https://code.jquery.com/jquery-2.2.4.min.js"
     integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
@@ -15,7 +16,7 @@
   </head>
   <body>
     <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper toplist">
         <a href="#!" class="brand-logo">白雪大戲院</a>
         <ul class="right hide-on-med-and-down">
           <li class="active"><a href="booking_search.php">訂位查詢</a></li>
@@ -48,6 +49,7 @@
           <p id="booker_phone"></p>
           <p id="booker_email"></p>
           <p id="booker_session"></p>
+          <p id="booker_date"></p>
           <p id="booker_seat"></p>
         </div>
         <div class="col s3 offset-s2">
@@ -60,7 +62,8 @@
   <script>
     $("#booker_detail").hide();
     $(document).ready(function(){
-      var sessionA = "10：30",sessionB="13：00",sessionC="18：30";
+      var sessionA = "10：30",sessionB="13：00",sessionC="18：30",sessionD="23：30";
+      var dateA = "2017/06/15",dateB="2017/07/20",dateC="2017/08/11";
       var searchdata = [];
       $("#search_btn").on("click", function(){
         $.ajax({
@@ -74,19 +77,34 @@
         }).done(function(data){
           var img_src,mname,msession;
           var response=jQuery.parseJSON(data);
-          console.log(response[0]["name"]);
+          //console.log(response[0]["name"]);
           $("#booker_detail").fadeIn();
           $("#booker_name").text("訂票人姓名：" + response[0]["name"]);
           $("#booker_phone").text("電話：" + response[0]["phonenumber"]);
           $("#booker_email").text("Email：" + response[0]["Email"]);
           $("#booker_seat").text("座次：" + response[0]["seat"]);
+
+          //時間判斷
+          if(response[0]['date']=='A'){
+            $("#booker_date").text("時間：" + dateA);
+          }else if (response[0]['date']=='B') {
+            $("#booker_date").text("時間：" + dateB);
+          }else if (response[0]['date']=='C'){
+            $("#booker_date").text("時間：" + dateC);
+          }
+
+
+          //場次判斷
           if(response[0]['session']=='A'){
             $("#booker_session").text("場次：" + response[0]['session'] + "：" + sessionA);
           }else if (response[0]['session']=='B') {
             $("#booker_session").text("場次：" + response[0]['session'] + "：" + sessionB);
           }else if (response[0]['session']=='C'){
             $("#booker_session").text("場次：" + response[0]['session'] + "：" + sessionC);
+          }else if (response[0]['session']=='D'){
+            $("#booker_session").text("場次：" + response[0]['session'] + "：" + sessionD);
           }
+
           if(response[0]['movieid']==1)
           {
             img_src = "images/Alaycikus.jpg";

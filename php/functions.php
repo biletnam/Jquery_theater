@@ -3,9 +3,9 @@
 require_once 'db.php';
 $movie_name = ["0","飢餓遊戲：自由幻夢I","再見，在也不見","暮光之城：蝕","失控謊言","黑魔女","007：空降危機"];
 //新增訂票人
-function add_booker($booker_name,$booker_phone,$booker_email,$booker_session,$movie_id,$booker_seat){
-    $sql= "INSERT INTO `booker` (`name`,`phonenumber`,`Email`,`session`,`seat`,`movieid`)
-           VALUE('$booker_name','$booker_phone','$booker_email','$booker_session','$booker_seat','$movie_id')";
+function add_booker($booker_name,$booker_phone,$booker_email,$booker_session,$booker_date,$movie_id,$booker_seat){
+    $sql= "INSERT INTO `booker` (`name`,`phonenumber`,`Email`,`session`,`date`,`seat`,`movieid`)
+           VALUE('$booker_name','$booker_phone','$booker_email','$booker_session','$booker_date','$booker_seat','$movie_id')";
     $query = mysqli_query($_SESSION['link'],$sql);
     if($query)
     {

@@ -14,6 +14,7 @@
                             $_POST['bphone'],
                             $_POST['bemail'],
                             $_POST['bsession'],
+                            $_POST['bdate'],
                             $_POST['mid'],
                             $i);
         break;
