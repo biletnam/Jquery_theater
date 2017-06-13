@@ -3,6 +3,35 @@
   require_once "php/functions.php";
 
   $themovie = get_the_movie($_GET['movie']);
+  $viedo_path ="";
+  if($_GET['movie']==1)
+  {
+    $viedo_path ="<iframe width='854' height='480' src='https://www.youtube.com/embed/xrIckmZdFyo' frameborder='0' allowfullscreen></iframe>";
+  }
+  else if($_GET['movie']==2)
+  {
+    $viedo_path ="<iframe width='854' height='480' src='https://www.youtube.com/embed/OQYEraG5BxQ' frameborder='0' allowfullscreen></iframe>";
+  }
+  else if($_GET['movie']==3)
+  {
+    $viedo_path ="<iframe width='854' height='480' src='https://www.youtube.com/embed/03ea0TFETK8' frameborder='0' allowfullscreen></iframe>";
+  }
+  else if($_GET['movie']==4)
+  {
+    $viedo_path ="<iframe width='854' height='480' src='https://www.youtube.com/embed/vaNd2Iy7B54' frameborder='0' allowfullscreen></iframe>";
+  }
+  else if($_GET['movie']==5)
+  {
+    $viedo_path ="<iframe width='854' height='480' src='https://www.youtube.com/embed/H6FoTn-fYDI' frameborder='0' allowfullscreen></iframe>";
+  }
+  else if($_GET['movie']==6)
+  {
+    $viedo_path ="<iframe width='854' height='480' src='https://www.youtube.com/embed/n_SapDJT2-I' frameborder='0' allowfullscreen></iframe>";
+  }
+  else if($_GET['movie']==7)
+  {
+    $viedo_path ="<iframe width='854' height='480' src='https://www.youtube.com/embed/ZEPJQzVSveE' frameborder='0' allowfullscreen></iframe>";
+  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,17 +59,9 @@
         </ul>
       </div>
     </nav>
-    <div class="row"> <!--圖片-->
-      <div class="col s3 offset-s4">
-        <img class="movieImg" src="<?php echo $themovie['mimgpath']?>">
-      </div>
-    </div>
     <div class="row">
-      <div class="col s2 offset-s5 book-btn">
-        <a href="booking.php?m=<?php echo $themovie['id']?>"class="waves-effect waves-light btn">前往訂票</a>
-      </div>
-      <div class="col s2 book-btn">
-        <a href="video.php?movie=<?php echo $_GET['movie']?>"class="waves-effect waves-light btn">觀看預告片</a>
+      <div class="col s8 offset-s2 videopos">
+        <?php echo $viedo_path; ?>
       </div>
     </div>
     <div class="row"> <!--資訊-->
