@@ -26,7 +26,7 @@
   <body class="book">
     <nav>
       <div class="nav-wrapper toplist">
-        <a href="#!" class="brand-logo">白雪大戲院</a>
+        <a href="index.php" class="brand-logo">白雪大戲院</a>
         <ul class="right hide-on-med-and-down">
           <li><a href="booking_search.php">訂位查詢</a></li>
           <li><a href="index.php">現正熱映</a></li>

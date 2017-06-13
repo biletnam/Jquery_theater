@@ -1,5 +1,5 @@
 # Jquery_theater
 
-## 2017_06_11 電影資料庫化
-## 2017_06_12 增加訂票日期 樣式字體修改
-## testtest
+## 2017_06_11 Add Movie database
+## 2017_06_12 Add booking date, Modify font
+## 2017_06_13 Add video.php, Add preview button
