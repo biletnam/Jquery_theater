@@ -237,6 +237,7 @@
             if(data == "yes")
             {
               alert("訂票人姓名已重複");
+              $("input[name=booker_name]").val("");
             }
           }).fail(function(jqXHR,textStatus,errorThrown){
 
