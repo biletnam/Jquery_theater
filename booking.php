@@ -26,6 +26,7 @@
   <body class="book">
     <nav>
       <div class="nav-wrapper toplist">
+        <img src="images/favicon.png" class="logo" align="center">
         <a href="index.php" class="brand-logo">白雪大戲院</a>
         <ul class="right hide-on-med-and-down">
           <li><a href="booking_search.php">訂位查詢</a></li>

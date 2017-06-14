@@ -31,12 +31,10 @@ div.content{
   border: solid;
   font-size: 14pt;
 }
-div.book-btn{
-  margin-left: 46%;
-  margin-bottom: 10px;
-  font-weight: bold;
+a.book-btn{
+  margin-right: 10px;
 }
-div.book-btn a, .btn {
+.btn {
   font-size: 15pt;
   font-weight: bold;
 }
@@ -59,6 +57,10 @@ img.color_block{
 div .card-content ,.card-action{
   font-size: 13pt;
 }
-div.videopos{
-  margin-left: 24%;
+div.videocontainer{
+  width: 821px;
+  margin:0 auto;
+}
+img.logo{
+  width:50px;
 }
