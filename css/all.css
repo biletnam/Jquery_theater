@@ -57,10 +57,13 @@ img.color_block{
 div .card-content ,.card-action{
   font-size: 13pt;
 }
-div.videocontainer{
+div.wrapper{
   width: 821px;
   margin:0 auto;
 }
 img.logo{
   width:50px;
+}
+img#movie_img{
+  margin: 10px;
 }

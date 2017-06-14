@@ -43,7 +43,9 @@
           </div>
         </form>
       </div>
-      <div class="col s5 offset-s3 content" id="booker_detail">
+    </div>
+    <div class="row">
+      <div class="col s5 offset-s3 content wrapper " id="booker_detail">
         <div class="col s5">
           <p id="movie_name"></p>
           <p id="booker_name"></p>

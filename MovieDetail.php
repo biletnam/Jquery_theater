@@ -61,7 +61,7 @@
         </ul>
       </div>
     </nav>
-    <div class="videocontainer"> <!--影片-->
+    <div class="wrapper prew_video"> <!--影片-->
       <div class="videopos">
         <?php echo $viedo_path; ?>
       </div>
@@ -95,10 +95,10 @@
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script> <!--materialize javascript-->
   <script>
-    $(".videocontainer").hide("fast");
+    $(".prew_video").hide("fast");
     $(document).ready(function(){
       $(".previewbtn").click(function(){
-        $(".videocontainer").fadeIn();
+        $(".prew_video").fadeIn();
         $(".imgbox").fadeOut();
       });
     });
