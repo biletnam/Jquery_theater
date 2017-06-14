@@ -3,36 +3,6 @@
   require_once "php/functions.php";
 
   $themovie = get_the_movie($_GET['movie']);
-
-  $viedo_path ="";
-  if($_GET['movie']==1)
-  {
-    $viedo_path ="<iframe width='854' height='480' src='https://www.youtube.com/embed/xrIckmZdFyo' frameborder='0' allowfullscreen></iframe>";
-  }
-  else if($_GET['movie']==2)
-  {
-    $viedo_path ="<iframe width='854' height='480' src='https://www.youtube.com/embed/OQYEraG5BxQ' frameborder='0' allowfullscreen></iframe>";
-  }
-  else if($_GET['movie']==3)
-  {
-    $viedo_path ="<iframe width='854' height='480' src='https://www.youtube.com/embed/03ea0TFETK8' frameborder='0' allowfullscreen></iframe>";
-  }
-  else if($_GET['movie']==4)
-  {
-    $viedo_path ="<iframe width='854' height='480' src='https://www.youtube.com/embed/vaNd2Iy7B54' frameborder='0' allowfullscreen></iframe>";
-  }
-  else if($_GET['movie']==5)
-  {
-    $viedo_path ="<iframe width='854' height='480' src='https://www.youtube.com/embed/H6FoTn-fYDI' frameborder='0' allowfullscreen></iframe>";
-  }
-  else if($_GET['movie']==6)
-  {
-    $viedo_path ="<iframe width='854' height='480' src='https://www.youtube.com/embed/n_SapDJT2-I' frameborder='0' allowfullscreen></iframe>";
-  }
-  else if($_GET['movie']==7)
-  {
-    $viedo_path ="<iframe width='854' height='480' src='https://www.youtube.com/embed/ZEPJQzVSveE' frameborder='0' allowfullscreen></iframe>";
-  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -63,7 +33,7 @@
     </nav>
     <div class="wrapper prew_video"> <!--影片-->
       <div class="videopos">
-        <?php echo $viedo_path; ?>
+        <?php echo $themovie['mvideopath']; ?>
       </div>
     </div>
     <div class="row imgbox"> <!--圖片-->
