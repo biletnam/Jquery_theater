@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/all1.css">
     <script
     src="https://code.jquery.com/jquery-2.2.4.min.js"
     integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
@@ -38,15 +38,14 @@
             <input name="search_booker_phone" id="icon_telephone" type="tel" class="validate" required>
             <label for="icon_telephone">Telephone</label>
           </div>
-          <div class="col s4 offset-s5">
+          <div class="col s5 offset-s5">
             <a class="waves-effect waves-light btn" id="search_btn" href="javascript:void(0);">查詢</a>
           </div>
         </form>
       </div>
     </div>
-    <div class="row">
-      <div class="col s5 offset-s3 content wrapper " id="booker_detail">
-        <div class="col s5">
+      <div class="content wrapper clearfix" id="booker_detail">
+        <div class="leftside">
           <p id="movie_name"></p>
           <p id="booker_name"></p>
           <p id="booker_phone"></p>
@@ -55,11 +54,10 @@
           <p id="booker_date"></p>
           <p id="booker_seat"></p>
         </div>
-        <div class="col s3 offset-s2">
+        <div class="rightside">
           <img src="" id="movie_img">
         </div>
       </div>
-    </div>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script> <!--materialize javascript-->
   <script>
@@ -82,6 +80,7 @@
           var response=jQuery.parseJSON(data);
           //console.log(response[0]["name"]);
           $("#booker_detail").fadeIn();
+          //$("#movie_name").text("片名：" + response[0]["mname"]);
           $("#booker_name").text("訂票人姓名：" + response[0]["name"]);
           $("#booker_phone").text("電話：" + response[0]["phonenumber"]);
           $("#booker_email").text("Email：" + response[0]["Email"]);
@@ -133,8 +132,20 @@
             img_src = "images/spy.jpg";
             mname = "007：空降危機";
           }
+          else if(response[0]['movieid']==7){
+            img_src = "images/dinto.jpg";
+            mname = "陣頭";
+          }
+          else if(response[0]['movieid']==8){
+            img_src = "images/tothefore.jpg";
+            mname = "破風";
+          }
+          else if(response[0]['movieid']==9){
+            img_src = "images/riceofthelegend.jpg";
+            mname = "黃飛鴻之英雄有夢";
+          }
           $("#movie_img").attr("src" , img_src);
-          $("#movie_img").attr("width", "300px");
+          $("#movie_img").attr("width", "100%");
           $("#movie_name").text("片名：" + mname);
           //window.location.href = "php/search_booker.php";
         }).fail(function(jqXHR,textStatus,errorThrown){

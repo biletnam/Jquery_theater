@@ -6,5 +6,4 @@
   $result = get_search_booker($_POST['search_name'],$_POST['search_phone']);
   echo json_encode($result,JSON_UNESCAPED_UNICODE);
   //print_r($result);
-  //print_r()
 ?>

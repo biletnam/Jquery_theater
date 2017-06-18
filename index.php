@@ -34,7 +34,7 @@
     <div class="row">
       <?php if(!empty($allmovielist)): ?>
         <?php foreach ($allmovielist as $datas): ?>
-      <div class="col s12 m6 l4 xl3 ">
+      <div class="col s12 m6 l4">
         <div class="card horizontal small">
           <div class="card-image">
             <img src="<?php echo $datas['mimgpath']?>">

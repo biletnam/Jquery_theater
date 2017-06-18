@@ -30,6 +30,7 @@ img.movieImg{
 div.content{
   border: solid;
   font-size: 14pt;
+  padding: 0px;
 }
 a.book-btn{
   margin-right: 10px;
@@ -67,3 +68,26 @@ img.logo{
 img#movie_img{
   margin: 10px;
 }
+div.leftside{
+  width: 67%;
+  float: left;
+}
+div.rightside{
+  width: 30%;
+  float: left;
+}
+div.leftside p{
+  margin: 10px;
+}
+
+.clearfix:after{
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear:both;
+  height: 0;
+}
+.clearfix{display: inline-block;}
+*html .clearfix{height: 1%;}
+.clearfix{display: block;}
