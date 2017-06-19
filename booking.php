@@ -160,7 +160,7 @@
           <div class="col s3">
             <p id="nowbooksum">目前訂票人數：0/0</p>
           </div>
-          <div class="col s2">
+          <div class="col s3">
             <button class="btn waves-effect waves-light" type="submit" name="action">確認
               <i class="material-icons right">send</i>
             </button>

@@ -4,4 +4,5 @@
 ## 2017_06_12 Add booking date, Modify font
 ## 2017_06_13 Add video.php, Add preview button
 ## 2017_06_14 Delete video.php merge with MovieDetail.php
-## chengbullshit
+## 2017_06_18 Adjest Img size
+## 2017_06_19 fixed 
